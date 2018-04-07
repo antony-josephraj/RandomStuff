@@ -60,6 +60,19 @@ void OptimizedCollectionForPrint::Print(uint64_t nStart, uint64_t nEnd, std::str
 	auto iter = mapTickCollection.find(strSymbol);
 	if (iter != mapTickCollection.end())
 	{ 
+
+		/*std::for_each(iter->second.lower_bound(nStart),
+                     		iter->second.upper_bound(nEnd),
+                     		[](auto kv)
+                     		{
+                           	for (auto const& FieldInfo : kv.second)
+                           	{
+                                  std::cout << FieldInfo.strFieldName << ":" << FieldInfo.fValue << " ";
+                           	}
+                           	std::cout << std::endl;
+                     		}
+              		);*/
+
 		for (auto const& kv : iter->second)
 		{
 			if (kv.first >= nStart && kv.first <= nEnd)
